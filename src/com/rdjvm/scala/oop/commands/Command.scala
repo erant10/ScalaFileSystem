@@ -11,6 +11,12 @@ trait Command {
 object Command {
   val MKDIR =  "mkdir"
   val LS = "ls"
+  val PWD = "pwd"
+  val TOUCH = "touch"
+  val CD = "cd"
+  val RM = "rm"
+  val ECHO = "echo"
+  val CAT = "cat"
 
   def emptyCommand: Command = new Command {
     override def apply(state: State): State = state.setMessage("")
@@ -21,15 +27,34 @@ object Command {
   }
 
   def from(input: String): Command = {
-
     val tokens: Array[String] = input.split(" ")
-
     tokens.head match {
       case MKDIR => {
         if (tokens.length < 2) incompleteCommand(MKDIR)
         else new Mkdir(tokens(1))
       }
       case LS => new Ls
+      case PWD => new Pwd
+      case TOUCH => {
+        if (tokens.length < 2) incompleteCommand(TOUCH)
+        new Touch(tokens(1))
+      }
+      case CD => {
+        if (tokens.length < 2) incompleteCommand(CD)
+        new Cd(tokens(1))
+      }
+      case RM => {
+        if (tokens.length < 2) incompleteCommand(RM)
+        new Rm(tokens(1))
+      }
+      case ECHO => {
+        if (tokens.length < 2) incompleteCommand(RM)
+        new Echo(tokens.tail)
+      }
+      case CAT => {
+        if (tokens.length < 2) incompleteCommand(RM)
+        new Cat(tokens(1))
+      }
       case "" => emptyCommand
       case _ => new UnknownCommand
     }

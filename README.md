@@ -22,5 +22,4 @@ A functional implementation in scala of a simple CLI for a **virtual** file syst
 
 
 
-***Implemented as part of the Rock the JVM scala course.*** 
- 
+***Implemented as part of the Rock the JVM scala beginners course.*** 
