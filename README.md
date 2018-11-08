@@ -13,12 +13,12 @@ A functional implementation in scala of a simple CLI for a virtual file system.
     - `$ pwd` - prints the entire current working directory.
     
 - Supported **File** methods
-    - `touch <filename>` -  create a new file with the name `<filename>` inside the current directory.
-    - `rm <filename>` -  removes the file `<filename>` from the current directory.
-    - `echo <content (...)> > <filename>` - writes `<content>` into the file `filename`. if the file does'nt exist - 
+    - `$ touch <filename>` -  create a new file with the name `<filename>` inside the current directory.
+    - `$ rm <filename>` -  removes the file `<filename>` from the current directory.
+    - `$ echo <content (...)> > <filename>` - writes `<content>` into the file `filename`. if the file does'nt exist - 
     creates it with `content`, if it does - overwrites the content
-    - `echo <content (...)> >> filename` - appends `content` into the file `filename`.
-    - `cat <filname>` - prints the content of the file `filename`
+    - `$ echo <content (...)> >> filename` - appends `content` into the file `filename`.
+    - `$ cat <filname>` - prints the content of the file `filename`
 
 
 
